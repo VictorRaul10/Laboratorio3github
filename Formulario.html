@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Casa de Cambio</title>
+    <link href="formulario.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <h1 id="titulo">Casa de Cambio</h1>
+    <form class="texto" >
+      <label for="currency-from">Tipo de moneda a cambiar:</label>
+      <select id="currency-from">
+        <option value="usd">Dólar</option>
+        <option value="pen">Soles</option>
+        <option value="eur">Euros</option>
+      </select>
+      <br>
+      <label for="currency-to">Tipo de moneda a recibir:</label>
+      <select id="currency-to">
+        <option value="usd">Dólar</option>
+        <option value="pen">Soles</option>
+        <option value="eur">Euros</option>
+      </select>
+      <br>
+      <button type="button" onclick="calculateTotal()">Calcular total</button>
+    </form>
+    <script>
+      function calculateTotal() {
+        var currencyFrom = document.getElementById("currency-from").value;
+        var currencyTo = document.getElementById("currency-to").value;
+        var rate = 0;
+        
+        // Definir tasas de cambio
+        if (currencyFrom == "usd" && currencyTo == "pen") {
+          rate = 3.78;
+        } else if (currencyFrom == "usd" && currencyTo == "eur") {
+          rate = 0.92;
+        } else if (currencyFrom == "pen" && currencyTo == "usd") {
+          rate = 0.26;
+        } else if (currencyFrom == "pen" && currencyTo == "eur") {
+          rate = 0.24;
+        } else if (currencyFrom == "eur" && currencyTo == "usd") {
+          rate = 1.09;
+        } else if (currencyFrom == "eur" && currencyTo == "pen") {
+          rate = 4.13;
+        }
+        
+        // Calcular total
+        var amount = prompt("Ingrese la cantidad de " + currencyFrom.toUpperCase() + " a cambiar:");
+        var total = amount * rate;
+        
+        // Mostrar alerta con total
+        alert("Usted recibirá " + total.toFixed(2) + " " + currencyTo.toUpperCase() + ".");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+#titulo{
+    color: beige;
+    text-align: center;
+    font-size: 50px;
+}
+.texto{
+    text-align: center;
+    color: beige;
+    font-size: 20px;
+}
+body{
+    background-image: url("diner2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
